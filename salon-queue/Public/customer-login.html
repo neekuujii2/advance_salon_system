@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Login - Salon Queue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Customer Login</h1>
+  
+  <section>
+    <form id="loginForm">
+      <label for="loginEmail">Email:</label>
+      <input type="email" id="loginEmail" name="email" required>
+      
+      <label for="loginPassword">Password:</label>
+      <input type="password" id="loginPassword" name="password" required>
+      
+      <button type="submit">Login</button>
+    </form>
+    
+    <p>New customer? <a href="customer-register.html">Register here</a></p>
+    <p style="margin-top: 20px; text-align: center;">
+      <a href="index.html" style="color: #666;">← Back to Home</a>
+    </p>
+  </section>
+  
+  <script src="script.js"></script>
+  <script>
+  // Get the form by ID
+  const form = document.getElementById('loginForm');
+
+  // Add event listener for form submission
+  form.addEventListener('submit', function(event) {
+      // Prevent default form behavior (stops reload)
+      event.preventDefault();
+      
+      // Get form data - TRIM to remove extra spaces
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+      
+      console.log('🔵 Login attempt:', { email, password: '***' });
+      
+      // Send to server
+      fetch('/login', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email: email, password: password })
+      })
+      .then(response => {
+          console.log('📡 Response status:', response.status);
+          return response.json();
+      })
+      .then(data => {
+          console.log('✅ Server response:', data);
+          if(data.message && data.sessionId) {
+              // Store session data
+              localStorage.setItem('sessionId', data.sessionId);
+              localStorage.setItem('userName', data.userName);
+              
+              console.log('✅ Session saved:', data.sessionId);
+              console.log('✅ User name saved:', data.userName);
+              console.log('🔄 Redirecting to dashboard...');
+              
+              // Redirect immediately
+              window.location.replace('/customer-dashboard.html');
+              
+          } else if(data.error) {
+              alert('Error: ' + data.error);
+          } else {
+              alert('Invalid credentials');
+          }
+      })
+      .catch(error => {
+          console.error('❌ Error:', error);
+          alert('Login failed. Please try again.');
+      });
+  });
+  </script>
+</body>
+</html>

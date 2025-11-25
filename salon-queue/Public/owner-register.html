@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Salon - Salon Queue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Register Your Salon</h1>
+  
+  <section>
+    <form id="ownerRegisterForm">
+      <label for="salonName">Salon Name:</label>
+      <input type="text" id="salonName" name="salonName" required>
+      
+      <label for="ownerName">Owner Name:</label>
+      <input type="text" id="ownerName" name="ownerName" required>
+      
+      <label for="businessEmail">Business Email:</label>
+      <input type="email" id="businessEmail" name="email" required>
+      
+      <label for="businessPhone">Business Phone:</label>
+      <input type="tel" id="businessPhone" name="phone" required>
+      
+      <label for="address">Salon Address:</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+      
+      <label for="ownerPass">Create Password:</label>
+      <input type="password" id="ownerPass" name="password" required>
+      
+      <button type="submit">Register Salon</button>
+    </form>
+    
+    <p>Already registered? <a href="owner-login.html">Login here</a></p>
+    <p style="margin-top: 20px; text-align: center;">
+      <a href="index.html" style="color: #666;">← Back to Home</a>
+    </p>
+  </section>
+  
+  <script src="script.js"></script>
+  <script>
+  // Get the registration form
+  const ownerRegisterForm = document.getElementById('ownerRegisterForm');
+
+  // Add event listener for form submission
+  ownerRegisterForm.addEventListener('submit', function(event) {
+      // Prevent default form behavior (stops reload)
+      event.preventDefault();
+      
+      // Get form data
+      const salonName = document.getElementById('salonName').value.trim();
+      const ownerName = document.getElementById('ownerName').value.trim();
+      const email = document.getElementById('businessEmail').value.trim();
+      const phone = document.getElementById('businessPhone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const password = document.getElementById('ownerPass').value.trim();
+      
+      console.log('Registering salon:', salonName);
+      
+      // Send to server
+      fetch('/register-salon', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ 
+              salonName: salonName,
+              ownerName: ownerName,
+              email: email,
+              phone: phone,
+              address: address,
+              password: password
+          })
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log('Server response:', data);
+          if(data.message && data.salonCode) {
+              alert('Salon registered successfully!\n\nYour Salon Code: ' + data.salonCode + '\n\nPlease save this code. You will need it to login.');
+              window.location.href = '/owner-login.html';
+          } else if(data.error) {
+              alert('Error: ' + data.error);
+          }
+      })
+      .catch(error => {
+          console.error('Error:', error);
+          alert('Registration failed. Please try again.');
+      });
+  });
+  </script>
+</body>
+</html>

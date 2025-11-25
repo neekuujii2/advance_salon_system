@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1759728352167,
+    "fullName": "Chandan Yadav",
+    "email": "custm@123",
+    "phone": "9876543211",
+    "password": "12345678",
+    "joinedQueues": []
+  },
+  {
+    "id": 1759728830099,
+    "fullName": "ujjwal",
+    "email": "ujjwal@123",
+    "phone": "8210624525",
+    "password": "12345678",
+    "joinedQueues": []
+  },
+  {
+    "id": 1759729096041,
+    "fullName": "Pravek",
+    "email": "pravek@123",
+    "phone": "9314312002",
+    "password": "12345678",
+    "joinedQueues": []
+  },
+  {
+    "id": 1759735166650,
+    "fullName": "Test1",
+    "email": "test@salon.com",
+    "phone": "9876543210",
+    "password": "12345678",
+    "joinedQueues": []
+  },
+  {
+    "id": 1763833103354,
+    "fullName": "Test user",
+    "email": "testuser@123",
+    "phone": "1234567890",
+    "password": "12345678",
+    "joinedQueues": []
+  },
+  {
+    "id": 1763836165478,
+    "fullName": "sanjay",
+    "email": "sanjay@123",
+    "phone": "1234567890",
+    "password": "12345678",
+    "joinedQueues": []
+  }
+]

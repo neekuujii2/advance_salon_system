@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1759726732747,
+    "salonName": "test salon",
+    "ownerName": "tester",
+    "email": "test@123.com",
+    "phone": "0987654321",
+    "address": "abc street",
+    "password": "12345678",
+    "salonCode": "SALON732747",
+    "createdAt": "2025-10-06T04:58:52.747Z",
+    "isActive": true
+  },
+  {
+    "id": 1759821797162,
+    "salonName": "Test1",
+    "ownerName": "TestName ",
+    "email": "test@salon.com",
+    "phone": "9876543210",
+    "address": "Abc Street",
+    "password": "12345678",
+    "salonCode": "SALON797160",
+    "createdAt": "2025-10-07T07:23:17.162Z",
+    "isActive": true
+  },
+  {
+    "id": 1759821929891,
+    "salonName": "Test2",
+    "ownerName": "TestName2",
+    "email": "Test2@123",
+    "phone": "9876543211",
+    "address": "abc street 2",
+    "password": "12345678",
+    "salonCode": "SALON929891",
+    "createdAt": "2025-10-07T07:25:29.891Z",
+    "isActive": true
+  }
+]

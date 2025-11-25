@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salon Queue System</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .landing-container {
+      background: white;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+    }
+
+    .landing-container h1 {
+      color: #333;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .landing-container .tagline {
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .user-type-section {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .user-card {
+      background: #f8f9fa;
+      padding: 30px 20px;
+      border-radius: 15px;
+      width: 220px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .user-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border-color: #667eea;
+    }
+
+    .user-card .icon {
+      font-size: 60px;
+      margin-bottom: 15px;
+    }
+
+    .user-card h3 {
+      color: #333;
+      margin: 10px 0;
+      font-size: 22px;
+    }
+
+    .user-card p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-group a {
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn-login {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-login:hover {
+      background: #5568d3;
+    }
+
+    .btn-register {
+      background: white;
+      color: #667eea;
+      border: 2px solid #667eea;
+    }
+
+    .btn-register:hover {
+      background: #667eea;
+      color: white;
+    }
+
+    .features {
+      margin-top: 50px;
+      text-align: left;
+      padding-top: 30px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .features h4 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .features ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .features li {
+      color: #666;
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .features li:before {
+      content: "✓";
+      color: #28a745;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-container">
+    <h1>🪮 Salon Queue System</h1>
+    <p class="tagline">Skip the wait. Track your queue in real-time.</p>
+
+    <div class="user-type-section">
+      <!-- Customer Card -->
+      <div class="user-card">
+        <div class="icon">👤</div>
+        <h3>Customer</h3>
+        <p>Join virtual queues and track your position</p>
+        <div class="btn-group">
+          <a href="customer-login.html" class="btn-login">Login</a>
+          <a href="customer-register.html" class="btn-register">Register</a>
+        </div>
+      </div>
+
+      <!-- Salon Owner Card -->
+      <div class="user-card">
+        <div class="icon">💼</div>
+        <h3>Salon Owner</h3>
+        <p>Manage queues and serve customers</p>
+        <div class="btn-group">
+          <a href="owner-login.html" class="btn-login">Login</a>
+          <a href="owner-register.html" class="btn-register">Register Salon</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="features">
+      <h4>Why Choose Our System?</h4>
+      <ul>
+        <li>Real-time queue position updates</li>
+        <li>No more waiting in crowded salons</li>
+        <li>Easy booking and service selection</li>
+        <li>Multi-salon support</li>
+        <li>Mobile-friendly interface</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

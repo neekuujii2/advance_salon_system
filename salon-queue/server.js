@@ -1,23 +1,25 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-app.use(express.static(__dirname));
 const bodyParser = require('body-parser');
-const fs = require('fs').promises; // Use promises for async file operations
+const fs = require('fs').promises;
+
 const PORT = process.env.PORT || 3000;
 
+// ===== CORRECT STATIC SERVE =====
+// Remove: app.use(express.static(__dirname));
+// Remove: app.use(express.static('Public'));
+
+app.use(express.static(path.join(__dirname, 'Public')));
+
+// Root route → index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'index.html'));
+});
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// Redirect root to landing page
-app.get('/', (req, res) => {
-  res.redirect('/index.html');
-});
-
-// Static files
-app.use(express.static('Public'));
-
 
 // File paths
 const DATA_DIR = path.join(__dirname, 'data');
